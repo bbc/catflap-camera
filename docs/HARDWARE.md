@@ -41,7 +41,7 @@ General help on how to configure your Raspberry Pi can be found [on the Raspberr
 
 ## Connecting the sensor
 
-The sensor should be connected between **GPIO input pin 24** and **any of the Raspberry Pi's ground pins**. It doesn't matter which wire is connected to which pin (polarity) - switches have no polarity.
+The sensor should be connected between **GPIO input pin 24** and **any of the Raspberry Pi's ground pins**. It doesn't matter which wire is connected to which pin (polarity) - switches have no polarity. The only important thing is that the two wires are normally open (if you put a multimeter in resistance measurement mode across the poles, you should see infinite resistance when the magnet is present and near-zero resistance when the magnet is absent).
 
 While it is possible to connect the sensor to the Pi without soldering, it is considerably easier if you have access to a soldering iron. Most reed switches have short wires that require extending to reach the Pi; additionally, the Pi has 0.1mm pitch header pins to connect to. As such you'll probably want to purchase some 0.1mm jumpers, some single or two-core wire, a soldering iron and some solder if you do not have this already.
 
@@ -76,15 +76,15 @@ The camera has a wide field of view but ideally needs to be set back about 40 ce
 
 ### Lighting (standard vs NoIR boards)
 
-If you want your camera to work through the night as well as the day, you'll need to provide some lighting near the catflap. 
+If you want your camera to work through the night as well as the day, you'll need to provide some lighting near the catflap. This can take the form of a small nightlight or desk light. You can also purchase LED light modules specifically designed to be used with the Pi camera, or you can make your own LED illuminator with some LEDs, some solder and some glue or cardboard.
 
 Alternatively, if you want to avoid having lights on and visible all night, you can use the Raspberry Pi NoIR camera board, which has no infrared filter. This will need to be kept out of direct sunlight to avoid being washed out. 
 
-The NoIR board lets you use infrared illuminators, which are commonly used for security cameras and can be purchased for around £25 from security and electronics suppliers.
+The NoIR board lets you use infrared illuminators, which are commonly used for security cameras and can be purchased for around £25 from security and electronics suppliers. However, colours with the NoIR will be 'off' - things will appear slightly purple and the scene will look a bit odd in terms of intensities.
 
 ## Catflaps
 
 Your catflap must allow a sensor to be mounted almost in contact with the flap itself, and for a magnet to be attached to the flap with tape/glue.
 
-If your flap is recessed into a door or wall you may not be able to fit a reed switch sensor as it will impede the frame.
+If your flap is recessed into a door or wall you may not be able to fit a reed switch sensor as it will impede the frame. In this case you may have to evaluate other sensors. If your sensor will be normally closed, you can invert the logic in software to work around this by replacing references to GPIO.HIGH with GPIO.LOW and vice versa in `camera.py`.
 
