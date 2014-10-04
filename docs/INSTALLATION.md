@@ -166,7 +166,7 @@ That's all we need - this tells supervisor how to run the camera, and it'll look
 
 Once you've got the Pi in place and the sensor and magnet attached to the catflap, plug it all in and turn it on. You should be able to see your Pi on the network and view the web server to see the pictures from your camera. Pushing the catflap should take a picture. Wait 2 seconds and push it again and you should get another picture. 
 
-You're set! Now go and lurk somewhere for your cat to use your catflap.
+You're set! Now go and lurk somewhere and wait for your cat to go through the flap. Once it has you can see the result on your Pi's web server.
 
 ## Next steps
 
