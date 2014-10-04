@@ -8,9 +8,10 @@ The camera was used in the production of BBC Two's "Cat Watch 2014: The New Hori
 
 # Documentation
 
+You don't need to be an expert to build your own camera - the documentation assumes no prior knowledge of the Raspberry Pi hardware or software, but assumes you're familiar with computers.
+
 * [Building the camera](../master/docs/HARDWARE.md)
 * [Installing and configuring the software](../master/docs/INSTALLATION.md)
-* [Using the camera](../master/docs/USAGE.md)
 * [Extending the software](../master/docs/EXTENDING.md)
 
 # License

@@ -15,7 +15,6 @@
 # limitations under the License.
 ## -- That's it for scary licenses. Let's code! --
 
-
 import time
 import sys
 import syslog
@@ -101,7 +100,7 @@ class Catflap(object):
         current_value = GPIO.input(pin)
         # Log the event
         syslog.syslog(syslog.LOG_DEBUG,
-                      "GPIO event - it is now %s, last activation was at %s"
+                      "GPIO event (%s) - time_now %s, last activation at %s"
                       % (GPIO.input(pin), time_now, self.time_stamp))
         if current_value == GPIO.LOW:
             # If the pin is low, the flap is closed!
@@ -131,11 +130,19 @@ class Catflap(object):
                 # We're going to turn on the camera light
                 self.camera.led = True
 
-                # Now take a photo and log it
+                # Now we generate a filename based on the time, for instance
+                # 20141007-200000.jpg (8pm Oct 7th 2014). This means we can
+                # easily find out when a specific photo was taken!
                 filename = "%s.jpg" % time.strftime("%Y%m%d-%H%M%S")
+                # Now we prepend the filename with the path we're using
+                # to store all our photos - in this case, /srv/cats
+                final_path = "/srv/cats/%s" % filename
 
                 # We're using the camera instance given to the class initially
-                self.camera.capture("/home/cats/%s" % filename)
+                # which is being held open and ready for us - all we need
+                # to do is ask it to capture an image to a path.
+                # We configure the camera when we set up this class below.
+                self.camera.capture(final_path)
 
                 # Let syslog know for debugging purposes
                 syslog.syslog(syslog.LOG_DEBUG, "Captured image %s at %s"
@@ -145,7 +152,7 @@ class Catflap(object):
                 # this is probably just the flap swinging past the sensor
 
                 # But keep a record to help us figure out problems
-                syslog.syslog(syslog.LOG_WARN, "Debounce filtered an event")
+                syslog.syslog(syslog.LOG_INFO, "Debounce filtered an event")
 
     def blink(self):
         """
@@ -162,16 +169,17 @@ class Catflap(object):
         This method is called to stop the program exiting while we wait for
         our interrupt to trigger the callback. The callback is executed in
         another thread of execution so we don't have to do anything here but
-        wait; we'll also clean up if we're terminated by a keyboard event
+        wait; we'll also clean up if we're terminated
         """
         try:
             while True:
                 time.sleep(1)
-        except KeyboardInterrupt:
+        finally:
             GPIO.cleanup()
+            self.camera.led = False
 
-# The pin we're using
-
+# The pin we've got the sensor connected to. We assume the other side of the
+# sensor is connected to a ground pin - it doesn't matter which one.
 catflap_pin = 24
 
 
@@ -183,6 +191,8 @@ with picamera.PiCamera() as camera:
     # We set the camera resolution to its highest setting - downscaling is done
     # in software, so this is actually easiest.
     camera.resolution = (2592, 1944)
+    # We can set EXIF tags here - record what camera model we are
+    camera.exif_tags['IFD0.Software'] = 'Catflap Camera v1.0'
     # Set up a new instance of the catflap, providing the pin and camera
     catflap = Catflap(catflap_pin, camera)
     # Run the catflap - this will run forever or until it is killed by
