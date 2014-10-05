@@ -18,6 +18,7 @@ You don't need to be an expert to build your own camera - the documentation assu
 
 * [Building the camera hardware](../master/docs/HARDWARE.md)
 * [Installing and configuring the software](../master/docs/INSTALLATION.md)
+* [Learning about the software](../master/docs/SOFTWARE.md)
 * [Extending the software](../master/docs/EXTENDING.md)
 
 # License

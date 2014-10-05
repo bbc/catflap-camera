@@ -85,6 +85,16 @@ class Catflap(object):
         GPIO.add_event_detect(self.switch_pin, GPIO.BOTH,
                               callback=self.catflap_callback)
 
+    def blink(self):
+        """
+        Blink the camera LED on and off a few times
+        """
+        for iter in range(0, 6):
+            self.camera.led = True
+            time.sleep(0.1)
+            self.camera.led = False
+            time.sleep(0.1)
+
     def catflap_callback(self, pin):
         """
         This function is called by the RPi.GPIO library when an interrupt
@@ -154,15 +164,6 @@ class Catflap(object):
                 # But keep a record to help us figure out problems
                 syslog.syslog(syslog.LOG_INFO, "Debounce filtered an event")
 
-    def blink(self):
-        """
-        Blink the camera LED on and off a few times
-        """
-        for iter in range(0, 6):
-            self.camera.led = True
-            time.sleep(0.1)
-            self.camera.led = False
-            time.sleep(0.1)
 
     def run(self):
         """
@@ -173,7 +174,7 @@ class Catflap(object):
         """
         try:
             while True:
-                time.sleep(1)
+                time.sleep(0.1)
         finally:
             GPIO.cleanup()
             self.camera.led = False
