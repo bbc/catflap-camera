@@ -8,7 +8,7 @@ The Pi is not a very powerful computer and the callback should be kept as quick 
 
 ## Recording video
 
-The current catflap only records an image, which doesn't always tell the full story if the cat nudged the flap open before entering, for instance. The picamera library can record video into a circular buffer - write a modification to dump 20 seconds of video, starting 5 seconds before the catflap was triggered.
+The current catflap only records an image, which doesn't always tell the full story if the cat nudged the flap open before entering, for instance. The picamera library can [record video into a circular buffer](http://picamera.readthedocs.org/en/release-1.8/recipes1.html#recording-to-a-circular-stream) - try to write a modification to dump about 20 seconds of video, starting 5 seconds *before* the catflap was triggered.
 
 ## Streaming
 
@@ -17,3 +17,5 @@ With some reasonably simple modifications to the code you can stream encoded vid
 ## ... and that's just the start of it
 
 With the hardware for a catflap camera you can build all sorts of interesting and novel cameras. With a few more parts you can extend the camera to have control, too - how about a remote control dry food dispenser?
+
+* [The Raspberry Pi website](http://www.raspberrypi.org/)

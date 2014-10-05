@@ -5,8 +5,8 @@
 
 To run the Catflap Camera as-is, you will need the following:
 
-* **Raspberry Pi Model B or B+** and SD/uSD card (eg [2431427](http://uk.farnell.com/raspberry-pi/raspberry-modb-8gb-usd/raspberry-pi-model-b-8gb-noobs/dp/2431427))
-* **Raspberry Pi Camera Board** (optionally NoIR) (eg [2357308](http://uk.farnell.com/raspberry-pi/rpi-noir-camera-board/raspberry-pi-noir-camera-board/dp/2357308))
+* **[Raspberry Pi](http://www.raspberrypi.org/products/model-b-plus/) Model B or B+** and SD/uSD card (eg [2431427](http://uk.farnell.com/raspberry-pi/raspberry-modb-8gb-usd/raspberry-pi-model-b-8gb-noobs/dp/2431427))
+* **[Raspberry Pi Camera Board](http://www.raspberrypi.org/products/camera-module/)** (optionally [NoIR](http://www.raspberrypi.org/products/pi-noir-camera/)) (eg [2357308](http://uk.farnell.com/raspberry-pi/rpi-noir-camera-board/raspberry-pi-noir-camera-board/dp/2357308))
 * **SD/microSD card** (micro SD for B+, otherwise SD; class 10 recommended; at least 4GB, 16GB recommended)
 * **1A/5V microUSB power supply**
 * A **reed switch** and **magnet** (eg [2218016](http://uk.farnell.com/jsp/search/productdetail.jsp?CMP=i-ddd7-00001003&sku=2218016) / [607230](http://uk.farnell.com/jsp/search/productdetail.jsp?CMP=i-ddd7-00001003&sku=607230))
