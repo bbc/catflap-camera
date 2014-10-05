@@ -1,5 +1,7 @@
 # Installing the camera
 
+A brief note on style conventions in this document - things you can type in to your Pi or will see on the console are written `like this`.
+
 ## Hardware Preparation
 
 * Connect the Raspberry Pi camera to the Pi's camera socket - [check the orientation of the cable is correct](http://www.raspberrypi.org/documentation/configuration/camera.md) (blue backing towards the ethernet port)
@@ -130,11 +132,13 @@ Now we're ready to actually install the camera script! Let's get a copy of the c
 
 Now we've got the camera installed we can run it. Let's do that to test it's working.
 
-Run it with `sudo python /opt/catflap-camera/camera.py`. You won't see any output - that's normal. Try moving the magnet around your sensor to trigger the camera. Give it a minute or so of this and look at your web server - you should see some pictures!
+Run it with `sudo python /opt/catflap-camera/camera.py`. You won't see any output - that's normal. Try moving the magnet around your sensor to trigger the camera. Give it a minute or so of this and look at your web server - you should see some pictures! You can enter `Ctrl+C` to turn off the camera and return to your prompt.
 
 If things aren't working (or even if they are) you'll probably want to look at the system log, where messages from the camera will be recorded. You can use a couple of appropriately named standard tools called `cat` and `tail` to inspect them.
 
-`cat /var/log/syslog` will dump the entire log to your console. This probably isn't useful. You can pass it through the `grep` filter to just look for lines about the camera - `cat /var/log/syslog | grep camera` will yield something like the below log extract. `tail -n 50 /var/log/syslog` will only print the last 50 lines of a log, and can be combined with `grep` for filtering.
+`cat /var/log/syslog` will print the entire log to your console. This probably isn't useful. You can pass it through the `grep` filter to just look for lines about the camera - `cat /var/log/syslog | grep camera` will yield something like the below log extract.
+
+We can use `tail` to get a subset of a file starting at the end of the file (there's another utility, `head`, which is the same but starts from the beginning of a file). `tail -n 50 /var/log/syslog` will only print the last 50 lines of a log, and can be combined with `grep` for filtering.
 
     Oct  4 16:43:51 catflap camera.py[20868]: I am a revision 3 Raspberry Pi running RPi.GPIO 0.5.7
     Oct  4 16:43:51 catflap camera.py[20868]: Catflap sense lead should be connected to P1-24
@@ -160,18 +164,18 @@ The last command will again open `nano`, and we can write the following simple c
     [program:catflap]
     command=/opt/catflap-camera/camera.py
 
-That's all we need - this tells supervisor how to run the camera, and it'll look after starting it at boot and restarting it if it falls over.
+That's all we need - this tells supervisor how to run the camera, and it'll look after starting it at boot and restarting it if it falls over. Again recall we need to enter `Ctrl+O` to write the file and `Ctrl+X` to close `nano`.
 
 ## Testing
 
 Once you've got the Pi in place and the sensor and magnet attached to the catflap, plug it all in and turn it on. You should be able to see your Pi on the network and view the web server to see the pictures from your camera. Pushing the catflap should take a picture. Wait 2 seconds and push it again and you should get another picture. 
 
-You're set! Now go and lurk somewhere and wait for your cat to go through the flap. Once it has you can see the result on your Pi's web server.
+You're set! Now go and lurk somewhere and wait for your cat to go through the flap. Once it has, you can see the result on your Pi's web server.
 
 ## Next steps
 
-Now you're collecting pictures of your catflap, you can do all sorts of fun things with the data - seeing when your cat is leaving the house, spotting intruders, and so on!
+Now you're collecting pictures of your catflap, you can do all sorts of fun things with the data - seeing when your cat is leaving the house, spotting intruders, and so on! For instance, these graphs were produced using the [nvd3](http://nvd3.org/) javascript charting tool:
 
 ![Stats example](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/catstats.png "An example of data generated from the catflap")
 
-* [Tips on extending the software](../master/docs/EXTENDING.md)
+Some [suggestions on extending the software](../master/docs/EXTENDING.md) can be found in this git repository; there are a lot of guides out on the net for how to do things with your Raspberry Pi, and the [Raspberry Pi](http://raspberrypi.org/) site is a great starting point to find out more about physical computing. Happy hacking!

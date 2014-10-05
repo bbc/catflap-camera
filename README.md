@@ -16,7 +16,7 @@ The Pi sits next to your catflap, with the camera pointed at the catflap. A sens
 
 You don't need to be an expert to build your own camera - the documentation assumes no prior knowledge of the Raspberry Pi hardware or software, but assumes you're familiar with computers.
 
-* [Building the camera](../master/docs/HARDWARE.md)
+* [Building the camera hardware](../master/docs/HARDWARE.md)
 * [Installing and configuring the software](../master/docs/INSTALLATION.md)
 * [Extending the software](../master/docs/EXTENDING.md)
 
