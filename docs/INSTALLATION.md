@@ -15,6 +15,16 @@ Once you've got your Pi wired up, you need to plug in an SD card with an operati
 
 Once you have the SD card (or microSD for the B+) set up, plug it into the Pi and connect your power supply to the Pi. You'll see the NOOBS boot screen. Select Raspbian when prompted and press install. Wait for a bit (you'll probably want to go and make a cup of tea) until it's finished. It'll then reboot into Raspbian.
 
+### Pre-built image
+
+If you're happy debugging a pre-configured image if it doesn't work, you can download an 8GB (compressed to 2.5GB) SD card image based on NOOBS with all of the below configuration steps performed and the camera set to start on boot. All you need to do is [write the image to a card](http://www.raspberrypi.org/documentation/installation/installing-images/README.md), plug it in, connect the sensor and turn it on. The card must be at least 8GB.
+
+You can download the image [here](https://assets.talkunafraid.co.uk/catflap-2014-10-05.img.bz2) (2.4GB).
+
+You'll still need to [configure your wireless network](http://www.raspberrypi.org/documentation/configuration/wireless/README.md) if you can't use an ethernet cable, and should log in and change the password (by default it's `raspberry`, username `pi`).
+
+Once you've connected it to your network via an ethernet cable you can log into it using a SSH client and the hostname `catflap.local`. You can view pictures it's taken by visiting `http://catflap.local/` in a web browser.
+
 ## Configuring Raspbian
 
 When the Pi finishes booting up, you'll be dropped into the `raspi-config` tool. This lets you configure some basic system settings. If you need to get back to it at any time, run `sudo raspi-config`.
