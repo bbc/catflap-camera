@@ -49,6 +49,8 @@ While it is possible to connect the sensor to the Pi without soldering, it is co
 
 Alternatively, you can purchase screw terminal add-ons for the Raspberry Pi which when combined with a reed switch featuring long terminal leads can provide a solder-free solution. However, this does add some cost which can be avoided if you already have access to the required parts.
 
+![A Pi wired up](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/pi_wired.jpg "The pi wired up")
+
 ## Sensors
 
 We chose a reed switch for its ease of use and simplicity of installation. The switch is configured so that it is held open by the magnet when the flap is closed. The magnet is mounted on the flap; the switch is mounted as close as possible to the magnet without impeding the flap. When the flap opens, the magnet moves away, the switch triggers and the circuit opens, allowing the Raspberry Pi's pull-up resistors to pull the line high.
