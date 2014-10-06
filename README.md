@@ -8,7 +8,7 @@ The camera was used in the production of BBC Two's "Cat Watch 2014: The New Hori
 
 ## What it is and how it works
 
-The Pi sits next to your catflap, with the camera pointed at the catflap. A sensor (a reed switch) is mounted on the frame and flap, which basically flips a switch when a cat goes through. This gets noticed by the camera script on the Pi and the Pi takes a picture, which can be downloaded from the Pi using a web browser.
+The Raspberry Pi, a small computer, sits next to your catflap, with a camera pointed at the catflap. A sensor (a reed switch) is mounted on the frame and flap, which basically flips a switch when a cat goes through. This gets noticed by the camera script on the Pi and the Pi takes a picture, which can be downloaded from the Pi using a web browser.
 
 ![Installation example](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/example.jpg "An example of an installed camera")
 

@@ -5,13 +5,13 @@
 
 To run the Catflap Camera as-is, you will need the following:
 
-* **[Raspberry Pi](http://www.raspberrypi.org/products/model-b-plus/) Model B or B+** and SD/uSD card (eg [2431427](http://uk.farnell.com/raspberry-pi/raspberry-modb-8gb-usd/raspberry-pi-model-b-8gb-noobs/dp/2431427))
-* **[Raspberry Pi Camera Board](http://www.raspberrypi.org/products/camera-module/)** (optionally [NoIR](http://www.raspberrypi.org/products/pi-noir-camera/)) (eg [2357308](http://uk.farnell.com/raspberry-pi/rpi-noir-camera-board/raspberry-pi-noir-camera-board/dp/2357308))
+* **[Raspberry Pi](http://www.raspberrypi.org/products/model-b-plus/) Model B or B+** and SD/uSD card
+* **[Raspberry Pi Camera Board](http://www.raspberrypi.org/products/camera-module/)** (optionally [NoIR](http://www.raspberrypi.org/products/pi-noir-camera/))
 * **SD/microSD card** (micro SD for B+, otherwise SD; class 10 recommended; at least 4GB, 16GB recommended)
 * **1A/5V microUSB power supply**
-* A **reed switch** and **magnet** (eg [2218016](http://uk.farnell.com/jsp/search/productdetail.jsp?CMP=i-ddd7-00001003&sku=2218016) / [607230](http://uk.farnell.com/jsp/search/productdetail.jsp?CMP=i-ddd7-00001003&sku=607230))
+* A **reed switch** and **magnet**
 
-All of the above items can be found at Farnell (order codes are listed above) but can also be found at most online component retailers, such as RS or Maplin. Some parts can be bought at specialist Raspberry Pi dealers such as the Pi Hut.
+You can locate all of the above parts through hobbyist and professional electronics shops, both online and in brick-and-mortar stores. Reed switches are commonly used in building intruder alarms to detect doors opening, so you can sometimes find them in home improvement stores.
 
 ![Components ready to go](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/pi_cam_prebuild.jpg "A Pi and camera ready to begin")
 
@@ -62,7 +62,7 @@ Any sensor can be used so long as it follows this mode of operation - when the f
 
 ### Mounting the reed switch
 
-The sensor we used for the Horizon programme, listed above, is very small, making it easy to embed into the frame of a catflap without impeding the flap. On most flaps it can simply be taped in place, or held in place with some blu-tak. Ensure that there's no exposed adhesive that could stick to the cat!
+The reed switch we used for the Horizon programme is very small, making it easy to embed into the frame of a catflap without impeding the flap. On most flaps it can simply be taped in place, or held in place with some blu-tak. Ensure that there's no exposed adhesive that could stick to the cat!
 
 The magnet is taped, using a strong Gaffer tape, to the flap; PVC (electrician's) tape will also work well. Make sure that no adhesive is left exposed, and that the magnet is secure. 
 
