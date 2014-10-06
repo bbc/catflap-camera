@@ -17,7 +17,7 @@ Once you have the SD card (or microSD for the B+) set up, plug it into the Pi an
 
 ### Pre-built image
 
-If you're happy debugging a pre-configured image if it doesn't work, you can download an 8GB (compressed to 2.5GB) SD card image based on NOOBS with all of the below configuration steps performed and the camera set to start on boot. All you need to do is [write the image to a card](http://www.raspberrypi.org/documentation/installation/installing-images/README.md), plug it in, connect the sensor and turn it on. The card must be at least 8GB.
+If you're happy working with a pre-configured image if it doesn't work, you can download an 8GB (compressed to 2.5GB) SD card image based on NOOBS with all of the below configuration steps performed and the camera set to start on boot. All you need to do is [write the image to a card](http://www.raspberrypi.org/documentation/installation/installing-images/README.md), plug it in, connect the sensor and turn it on. The card must be at least 8GB.
 
 You can download the image [here](https://assets.talkunafraid.co.uk/catflap-2014-10-05.img.bz2) (2.4GB).
 
@@ -51,9 +51,9 @@ Once this is done, reboot the Pi for the change to stick.
 
 ### Remote Access
 
-You can do practically all of the subsequent tasks (and indeed the above task) if your Pi is on the network. Use a SSH client from another computer to connect to the IP address of the Raspberry Pi, and log in with the username `pi` and password specified earlier (by default `raspberry` if you didn't change it yet).
+You can do practically all of the subsequent tasks (and indeed the above tasks) from another computer on the network once your Pi is on your home wifi or wired connection. Use a SSH client (try [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows) from another computer to connect to the IP address of the Raspberry Pi, and log in with the username `pi` and password specified earlier (by default `raspberry` if you didn't change it yet).
 
-If you've plugged in your Pi to a wired connection then you don't need to do anything else. If you're using a USB wi-fi dongle, [follow these instructions](http://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) to configure your Pi's wireless.
+If you've plugged in your Pi to a wired connection then you don't need to do anything else. If you're using a USB wi-fi dongle, [follow these instructions](http://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) to configure your Pi's wireless network adapter.
 
 To find your Pi's IP address, simply enter `ip addr`.
 
@@ -69,10 +69,9 @@ To find your Pi's IP address, simply enter `ip addr`.
     3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN qlen 1000
         link/ether 80:1f:02:6c:71:fc brd ff:ff:ff:ff:ff:ff
 
-In the above example you can see under eth0 (our wired connection) an inet address of `10.0.0.224`. This is the IP address our Pi has been given on the local network.
+In the above example you can see under eth0 (our wired connection) an inet address of `10.0.0.224`. This is the IP address our Pi has been given on the local network. There's also an address `127.0.0.1` given; this is for the `lo` or 'loopback' interface - this isn't what you want.
 
-This IP address may change - your router may have the ability to reserve an address for the Pi, or you can use Zeroconf to have the Pi announce itself on the network for easy discovery.
-
+This IP address may change - your router may have the ability to reserve an address for the Pi, or you can use Zeroconf to have the Pi announce itself on the network for easy discovery, removing the need to use IP addresses directly entirely.
 
 ### Installing a Zeroconf daemon
 
@@ -84,8 +83,9 @@ That's it! You may want to change the hostname of the pi with `raspi-config`. Fo
 
 ## Preparing for the camera software
 
-First, let's try taking a picture. Run `raspistill -o test.jpg`. If you've got a monitor plugged in, even without a desktop environment, you'll see a preview before the picture is taken. If something isn't working here you'll need to fix that before proceeding - you may not have enabled the camera in `sudo raspi-config`.
+First, let's try taking a picture. Run `raspistill -o test.jpg`. If you've got a monitor plugged in, even without a desktop environment, you'll see a preview before the picture is taken. If something isn't working here you'll need to fix that before proceeding - you may not have enabled the camera in `sudo raspi-config`, or you might not have rebooted since you did so.
 
+You also shouldn't see a camera LED light up as a picture is taken. If you do, go back and disable the LED and then restart the Pi.
 
 ### Installing a webserver
 
@@ -124,14 +124,14 @@ The camera software relies on a few Python libraries we have to install before w
 
 * Install picamera: `sudo apt-get install python-picamera`
 
-The RPi.GPIO library is already installed by default on Raspbian but if you need to install it:
+The RPi.GPIO library is already installed by default on Raspbian, but if you need to install it, or need to upgrade it:
 
 * Install pip: `sudo apt-get install python-pip`
 * Install RPi.GPIO: `sudo pip install RPi.GPIO --upgrade`
 
 ## Connecting the sensor
 
-Connect your reed switch to [pin 24](http://pi.gadgetoid.com/pinout/pin18_gpio24) and a [ground pin](http://pi.gadgetoid.com/pinout/pin20_ground) on the Pi's GPIO interface. You can find out which physical pins on the Raspberry Pi this relates to on the excellent [Pinout](http://pi.gadgetoid.com/pinout) website. 
+Connect your reed switch to [pin 24](http://pi.gadgetoid.com/pinout/pin18_gpio24) and a [ground pin](http://pi.gadgetoid.com/pinout/pin20_ground) on the Pi's GPIO interface. You can find out which physical pins on the Raspberry Pi this relates to on the excellent [Pinout](http://pi.gadgetoid.com/pinout) website.
 
 ## Installing the camera
 
