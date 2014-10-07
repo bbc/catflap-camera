@@ -1,5 +1,5 @@
 # Raspberry Pi Catflap Camera
-# Copyright 2014 James Harrison
+# Copyright 2014 BBC Research & Development
 
 ## -- Scary license boilerplate --
 # Licensed under the Apache License, Version 2.0 (the "License");

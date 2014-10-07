@@ -23,7 +23,7 @@ You don't need to be an expert to build your own camera - the documentation assu
 
 # License
 
-Copyright 2014 James Harrison
+Copyright 2014 BBC Research and Development
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at
 
