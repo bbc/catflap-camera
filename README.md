@@ -16,6 +16,8 @@ The Raspberry Pi, a small computer, sits next to your catflap, with a camera poi
 
 You don't need to be an expert to build your own camera - the documentation assumes no prior knowledge of the Raspberry Pi hardware or software, but assumes you're familiar with computers.
 
+*The build process normally involves use of a soldering iron - if you're not quite a grown-up yet, you should get a grown-up to help you out with your catflap build!* You may be able to do it without using a soldering iron but should still get a grown-up to help you.
+
 * [Building the camera hardware](../master/docs/HARDWARE.md)
 * [Installing and configuring the software](../master/docs/INSTALLATION.md)
 * [Learning about the software](../master/docs/SOFTWARE.md)

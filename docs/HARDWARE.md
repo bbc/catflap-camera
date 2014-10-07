@@ -1,6 +1,14 @@
 
 # Hardware for the Camera
 
+## Safety First!
+
+**You should not attempt to build your own catflap camera without adult supervision!**
+
+If you're not quite a grown-up yet (eg, under 18) but want to build a catflap camera you certainly can - but this will normally require the use of a soldering iron, which is a very hot tool that can cause injury if used improperly. You should take sensible precautions like getting a grown-up to help you or do it for you!
+
+An alternative to soldering is to use screw terminal blocks, also called connector strips or barrier strip. These let you use a screwdriver to clamp two wires together. This is a safer and easier approach but won't be usable with all reed switches and catflaps, since the connection between reed switch and wires is much larger and may get in the way of your cat or the catflap flap if your reed switch has short wires.
+
 ## Required Components
 
 To run the Catflap Camera as-is, you will need the following:
@@ -39,18 +47,6 @@ You'll also need a keyboard and mouse to configure your Pi, and a HDMI cable to 
 
 General help on how to configure your Raspberry Pi can be found [on the Raspberry Pi website](http://www.raspberrypi.org/help/).
 
-## Connecting the sensor
-
-The sensor should be connected between **GPIO input pin 24** and **any of the Raspberry Pi's ground pins**. It doesn't matter which wire is connected to which pin (polarity) - switches have no polarity. The only important thing is that the two wires are normally open (if you put a multimeter in resistance measurement mode across the poles, you should see infinite resistance when the magnet is present and near-zero resistance when the magnet is absent).
-
-While it is possible to connect the sensor to the Pi without soldering, it is considerably easier if you have access to a soldering iron. Most reed switches have short wires that require extending to reach the Pi; additionally, the Pi has 0.1mm pitch header pins to connect to. As such you'll probably want to purchase some 0.1mm jumpers, some single or two-core wire, a soldering iron and some solder if you do not have this already.
-
-![Soldering a sensor lead](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/sensorsoldering.jpg "Soldering a sensor lead to a 0.1\" header")
-
-Alternatively, you can purchase screw terminal add-ons for the Raspberry Pi which when combined with a reed switch featuring long terminal leads can provide a solder-free solution. However, this does add some cost which can be avoided if you already have access to the required parts.
-
-![A Pi wired up](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/pi_wired.jpg "The pi wired up")
-
 ## Sensors
 
 We chose a reed switch for its ease of use and simplicity of installation. The switch is configured so that it is held open by the magnet when the flap is closed. The magnet is mounted on the flap; the switch is mounted as close as possible to the magnet without impeding the flap. When the flap opens, the magnet moves away, the switch triggers and the circuit opens, allowing the Raspberry Pi's pull-up resistors to pull the line high.
@@ -59,6 +55,19 @@ Any sensor can be used so long as it follows this mode of operation - when the f
 
 ![Soldering a sensor lead](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/sensor.jpg "An example sensor with lead soldered")
 
+## Connecting the sensor
+
+The sensor should be connected between **GPIO input pin 24** and **any of the Raspberry Pi's ground pins**. It doesn't matter which wire is connected to which pin (polarity) - switches have no polarity. The only important thing is that the two wires are normally open (if you put a multimeter in resistance measurement mode across the poles, you should see infinite resistance when the magnet is present and near-zero resistance when the magnet is absent).
+
+While it is possible to connect the sensor to the Pi without soldering, it is considerably easier if you have access to a soldering iron. Most reed switches have short wires that require extending to reach the Pi; additionally, the Pi has 0.1mm pitch header pins to connect to. As such you'll probably want to purchase some 0.1mm jumpers, some single or two-core wire, a soldering iron and some solder if you do not have this already.
+
+Most reed switches are two-pole, so picking the two wires to use is really easy - there's only two to pick from. If you get a four-wire switch designed for intruder alarms, you probably want the red and yellow wires. You can use a multimeter in resistance measurement mode to figure out which wires to use - you're looking for the pair of wires that have zero resistance when the magnet is present, and infinite resistance when the magnet is not present.
+
+![Soldering a sensor lead](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/sensorsoldering.jpg "Soldering a sensor lead to a 0.1\" header")
+
+As an alternative to soldering the wires together to create a reed switch with 0.1" header connectors, you can use 0.1" female to male jumper cables (available from most hobbyist electronics stores), some screw terminal blocks, and a reed switch with long enough cables to get the screw terminal block out of the way of the flap and cat. You can assemble the entire catflap without any soldering using these parts.
+
+![A Pi wired up](https://github.com/JamesHarrison/catflap-camera/raw/master/docs/images/pi_wired.jpg "The pi wired up")
 
 ### Mounting the reed switch
 
