@@ -51,7 +51,7 @@ Once this is done, reboot the Pi for the change to stick.
 
 ### Remote Access
 
-You can do practically all of the subsequent tasks (and indeed the above tasks) from another computer on the network once your Pi is on your home wifi or wired connection. Use a SSH client (try [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows) from another computer to connect to the IP address of the Raspberry Pi, and log in with the username `pi` and password specified earlier (by default `raspberry` if you didn't change it yet).
+You can do practically all of the subsequent tasks (and indeed the above tasks) from another computer on the network once your Pi is on your home wifi or wired connection. Use an SSH client (try [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows) from another computer to connect to the IP address of the Raspberry Pi, and log in with the username `pi` and password specified earlier (by default `raspberry` if you didn't change it yet).
 
 If you've plugged in your Pi to a wired connection then you don't need to do anything else. If you're using a USB wi-fi dongle, [follow these instructions](http://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) to configure your Pi's wireless network adapter.
 
